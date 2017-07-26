@@ -1,0 +1,11 @@
+.header{
+    height: 70px;
+    background: #f1d049;
+    text-align: -webkit-center;
+    font-size: xx-large;
+}
+
+.header-text{
+    vertical-align: -webkit-baseline-middle;
+    color: #5f5e5e;
+}

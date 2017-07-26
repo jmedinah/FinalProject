@@ -1,0 +1,40 @@
+<div class="checkbox-location">
+  <label class="example-margin">Type View:</label>
+  <md-radio-group [(ngModel)]="align">
+    <md-radio-button class="example-margin" value="full">Full View</md-radio-button>
+    <md-radio-button class="example-margin" value="compact">Compact View</md-radio-button>
+  </md-radio-group>
+</div>
+<div class="title">
+  <h3>List Students</h3>
+</div>
+
+<div class="div-table">
+  <table mdSort (mdSortChange)="sortData($event)">
+    <tr>
+      <th ></th>
+      <th md-sort-header="fullName">Full Name</th>
+      <th md-sort-header="averageGrade">Average</th>
+      <th *ngIf="align === 'full'" md-sort-header="deliveredHomeworks"> Delivered Homeworks</th>
+      <th *ngIf="align === 'full'" md-sort-header="missingHomeworks">Missing Homeworks</th>
+      <th *ngIf="align === 'full'" md-sort-header="lastUpdate">Last Update</th>
+      <th *ngIf="align === 'full'" >Options</th>
+    </tr>
+    <tr *ngFor="let student of students" (click)="onSelect(student)">
+      <td> <img src="{{student.image}}" class="image-profile" alt=""></td>
+      <td>{{student.fullName}}</td>
+      <td>{{student.averageGrade}}</td>
+      <td *ngIf="align === 'full'">{{student.deliveredHomeworks}}</td>
+      <td *ngIf="align === 'full'">{{student.missingHomeworks}}</td>
+      <td *ngIf="align === 'full'">{{student.lastUpdate}}</td>
+      <td *ngIf="align === 'full'">
+        <button md-raised-button (click)="gotoDetail(student.id)">  
+        Details
+      </button>
+        <button md-raised-button (click)="delete(student); $event.stopPropagation()">  
+        Delete
+      </button>
+      </td>
+    </tr>
+  </table>
+</div>
