@@ -43,7 +43,7 @@ export class StudentDetailComponent implements OnInit {
       this.student.deliveredHomeworks = null;
       this.student.missingHomeworks = null;
       this.student.lastUpdate = null;
-      this.student.image = '../../assets/images/man.png';
+      this.student.image = './assets/images/man.png';
     } else {
       this.studentService.create(this.student)
       .then(() => this.goBack());
